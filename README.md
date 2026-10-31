@@ -94,43 +94,67 @@ Interactive 3D Model and GIS/CAD Assets
 ```text
 SEWA-First-Innovation-Challenge-2026/
 ├── README.md
-├── SUBMISSION_GUIDE.md
+├── LICENSE
+├── .gitignore
+├── assets/
+│   └── screenshots/
+│       ├── 01-landing-page.png
+│       ├── 02-feature.png
+│       ├── 03-result.png
+│       └── README.md
+├── docs/
+│   └── architecture.md
 ├── submission/
 │   ├── PRESENTATION.md
 │   └── DEMO.md
 ├── src/
+│   ├── README.md
+│   ├── .env.example
+│   ├── requirements_backend.txt
+│   ├── setup_aic.sh
+│   ├── setup_lightning.sh
+│   ├── fix_cuda_mismatch.sh
 │   ├── backend/
-│   │   └── server.py
+│   │   └── server.py                 # FastAPI API
 │   ├── frontend/
-│   │   ├── app/
-│   │   ├── components/
-│   │   └── lib/
+│   │   ├── app/                      # Next.js routes and pages
+│   │   ├── components/               # Reusable UI components
+│   │   ├── lib/                      # Frontend API and demo helpers
+│   │   ├── public/                   # Browser-served static assets
+│   │   ├── package.json
+│   │   └── pnpm-lock.yaml
 │   ├── pipeline/
-│   │   ├── run_pipeline.py
-│   │   ├── stage1_extract.py
-│   │   ├── stage5_export.py
-│   │   └── stage6_scale.py
-│   └── DroneSplat/
-├── docs/
-│   └── architecture.md
-├── assets/
-│   └── screenshots/
-│       └── README.md
-├── requirements.txt
-├── .gitignore
-└── LICENSE
+│   │   ├── config.py
+│   │   ├── run_pipeline.py           # Pipeline orchestration
+│   │   ├── stage1_extract.py         # Video and telemetry extraction
+│   │   ├── stage5_export.py          # 3D and GIS exports
+│   │   ├── stage6_scale.py           # Geospatial scaling
+│   │   └── setup_tunnel.sh
+│   └── DroneSplat/                   # Reconstruction and rendering engine
+│       ├── arguments/
+│       ├── gaussian_renderer/
+│       ├── scene/
+│       ├── utils/
+│       └── submodules/
 ```
 
 ### What goes where?
 
 | Item | Location |
 |---|---|
-| Source code | `src/backend/`, `src/frontend/`, `src/pipeline/`, and `src/DroneSplat/` |
-| Architecture / technical documentation | `docs/` |
-| Project screenshots / hardware photos | `assets/screenshots/` |
-| Final PPT / presentation | `submission/` |
+| FastAPI backend and API routes | `src/backend/` |
+| Next.js pages and UI components | `src/frontend/app/` and `src/frontend/components/` |
+| Frontend API clients and demo data | `src/frontend/lib/` |
+| Browser-served static files | `src/frontend/public/` |
+| Pipeline orchestration and processing stages | `src/pipeline/` |
+| Gaussian splatting, rendering, and reconstruction code | `src/DroneSplat/` |
+| Python backend dependencies | `src/requirements_backend.txt` |
+| Runtime environment template | `src/.env.example` |
+| Architecture and technical documentation | `docs/` |
+| Screenshots and project visuals | `assets/screenshots/` |
+| Presentation and submission materials | `submission/` |
 | Demo video link | `submission/DEMO.md` |
-| Project overview | `README.md` |
+| Project overview and setup guidance | `README.md` and `src/README.md` |
 
 ## 8. Final Presentation
 
